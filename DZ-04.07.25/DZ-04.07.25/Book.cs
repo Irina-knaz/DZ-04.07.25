@@ -4,7 +4,7 @@ internal class Book //создание класса с полями
 {
     public string title;  //поля
     public string author;
-    public int year;
+    public int? year;
     public bool IsAvailable;
 
     /// <summary>
@@ -12,7 +12,7 @@ internal class Book //создание класса с полями
     /// </summary>
     public void DisplayInfo() 
     {
-        Console.WriteLine($"\nНазвание книги: {title} Автор: {author} Год издания: {year} Доступна ли книга: {IsAvailableText()}");
+        Console.WriteLine($"\nНазвание книги: {title} Автор: {author} Год издания: {YearBook()} Доступна ли книга: {IsAvailableText()}");
     }
 
     public void Berrow()
@@ -38,7 +38,11 @@ internal class Book //создание класса с полями
     
     public void YearBook()
     {
-        if (year == 0)
+        if (year != null)
+        {
+            Console.WriteLine(year.Value);
+        }
+        else
         {
             Console.WriteLine("Неизвестный год издания");
         }
