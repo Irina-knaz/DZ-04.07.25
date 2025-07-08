@@ -31,16 +31,16 @@ internal class Book //создание класса с полями
         }
     }
 
-   public void YearBook()
+    private string IsAvailableText()
+    {
+        return IsAvailable ? "Книга в библиотеке" : "Книга была выдана";
+    } 
+    
+    public void YearBook()
     {
         if (year == 0)
         {
             Console.WriteLine("Неизвестный год издания");
         }
-    }
-
-    private string IsAvailableText()
-    {
-        return IsAvailable ? "Книга в библиотеке" : "Книга была выдана";
     }
 }
