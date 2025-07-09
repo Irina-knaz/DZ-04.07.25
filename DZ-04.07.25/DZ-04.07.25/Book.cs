@@ -3,9 +3,10 @@
 internal class Book //создание класса с полями
 {
     public string title;  //поля
-    public string author;
+    public string? author;
     public int? year;
     public bool IsAvailable;
+    
 
     /// <summary>
     /// Метод, который выводит инфу на консоль
@@ -40,11 +41,20 @@ internal class Book //создание класса с полями
     {
         if (year != null)
         {
-            Console.WriteLine(year.Value);
+            Console.WriteLine("Год издания: " + year.Value);
         }
         else
         {
             Console.WriteLine("Неизвестный год издания");
         }
+    }
+
+    enum Genre
+    { 
+        Fiction,
+        NonFiction,
+        Science,
+        Fantasy,
+        Biography
     }
 }

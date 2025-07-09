@@ -9,8 +9,10 @@ book2.DisplayInfo(); //вывожу информацию книги 2
 book3.DisplayInfo(); //вывожу информацию книги 3
 
 book1.YearBook();
+book2.YearBook();
+book3.YearBook();
 
 
-    
+
 
 
