@@ -1,46 +1,80 @@
-﻿namespace DZ_04._07._25;
+﻿using System.Security.Cryptography.X509Certificates;
+using System.Threading.Channels;
+
+namespace DZ_04._07._25;
 
 internal class Book //создание класса с полями
 {
-    public string title;  //поля
-    public string author;
-    public int year;
-    public bool IsAvailable;
-
+    private string? title;  //поля
+    private string? author;
+    private int? year;
+    private bool IsAvailable;
+    private Genre genre;
+    
     /// <summary>
     /// Метод, который выводит инфу на консоль
     /// </summary>
-    public void DisplayInfo() 
+    public void DisplayInfo()
     {
-        Console.WriteLine($"\nНазвание книги: {title} Автор: {author} Год издания: {year} Доступна ли книга: {IsAvailableText()}");
+        Console.WriteLine($"\nНазвание книги: {title}. Автор: {author}. Жанр: {GenreBook()}. Год издания: {YearBook()}. Доступна ли книга: {IsAvailableText()}.");
     }
 
-    public void Berrow()
+    public void Berrow() //Доступна ли книга
     {
         if (IsAvailable == false)
         {
-            Console.WriteLine("Книга была выдана");
+            Console.WriteLine($"Книга <{title}> была выдана.");
         }
     }
 
-    public void Return()
-    { 
+    public void Return() //Доступна ли книга
+    {
         if (IsAvailable == true)
         {
-            Console.WriteLine("Книга в библиотеке");
+            Console.WriteLine($"Книга <{title}> возвращена в библиотеку.");
         }
     }
 
-    private string IsAvailableText()
+    private string IsAvailableText() // Доступна ли книга
     {
         return IsAvailable ? "Книга в библиотеке" : "Книга была выдана";
-    } 
-    
-    public void YearBook()
+    }
+
+    public string YearBook() // Год издания
     {
-        if (year == 0)
+        string resultIf = null;
+        string resultElse = null;
+
+        if (year != null)
         {
-            Console.WriteLine("Неизвестный год издания");
+            resultIf = resultIf + Convert.ToString(year);
+            return resultIf;
         }
+        else
+        {
+            resultElse = resultElse + Convert.ToString("Неизвестный год издания.");
+            return resultElse;
+        }
+    }
+
+    public string GenreBook()
+    {
+        switch (genre)
+        {
+            case Genre.Novel:
+                return "Роман";
+                
+            case Genre.Fiction:
+                return "Фикшн";
+
+            default:
+                return "Неизвестный жанр";                
+        }  
+    }
+
+    public enum Genre //Жанры
+    {
+       Novel,
+       Fiction
     }
 }
