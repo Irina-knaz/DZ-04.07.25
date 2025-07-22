@@ -1,10 +1,11 @@
 ﻿using DZ_04._07._25;
 using static DZ_04._07._25.Book;
 
-    
-Book book1 = new Book { title = "Записки охотника", author = "Иван Тургенев", genre = Genre.Novel };
-Book book2 = new Book { title = "Капитанская дочка", author = "Александр Пушкин", genre = Genre.Novel };
-Book book3 = new Book { title = "Война и мир", author = "Лев Толстой", genre = Genre.Fiction, year = 1867, IsAvailable = true };
+
+
+Book book1 = new Book ("Записки охотника", "Иван Тургенев", Genre.Novel, 0, false);
+Book book2 = new Book ("Капитанская дочка", "Александр Пушкин", Genre.Novel, 0, false);
+Book book3 = new Book ("Война и мир", "Лев Толстой", Genre.Fiction, 1867, true);
 
 book1.DisplayInfo(); //вывожу информацию книги 1
 book2.DisplayInfo(); //вывожу информацию книги 2
