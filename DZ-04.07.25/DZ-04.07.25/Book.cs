@@ -26,21 +26,21 @@ internal class Book //создание класса с полями
         return _title;
     }
     public string? GetAuthor()   //метод для возврата поля
-    {      
+    {
         return _author;
     }
     public Genre GetGenre()   //метод для возврата поля
     {
-            return _genre;
-        }
+        return _genre;
+    }
     public int? GetYear()   //метод для возврата поля
     {
         return _year;
-       
+
     }
     public bool GetIsAvailable()   //метод для возврата поля
     {
-        return _IsAvailable;        
+        return _IsAvailable;
     }
 
     /// <summary>
@@ -48,8 +48,9 @@ internal class Book //создание класса с полями
     /// </summary>
     public void DisplayInfo()
     {
-        Console.WriteLine($"\nНазвание книги: {_title}. Автор: {_author}. Жанр: {GenreBook()}. Год издания: {YearBook()}. Доступна ли книга: {IsAvailableText()}.");
+        Console.WriteLine($"\nНазвание книги: {_title}. Автор: {_author}. Жанр: {GenreBook()}. Год издания: {YearBook()}. Доступна ли книга: {IsAvailableText()}. Идентификатор: {Id}");
     }
+    private string Id = Guid.NewGuid().ToString();
 
     public void Berrow() //Доступна ли книга
     {
@@ -77,7 +78,7 @@ internal class Book //создание класса с полями
         string resultIf = null;
         string resultElse = null;
 
-        if (_year != null)
+        if (_year != null || _year != 0)
         {
             resultIf = resultIf + Convert.ToString(_year);
             return resultIf;
